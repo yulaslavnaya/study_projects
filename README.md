@@ -5,6 +5,26 @@
 
 # Описание
 
-- 
+- TODO
+
+- errors_validation
+
+- events
+
+- other
+
+- pairs_game
+
+- promise
+
+- react test
+
+- server_todoApp
+
+- students
+
+- timeout
+
+- timer
 
 
