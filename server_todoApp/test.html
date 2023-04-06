@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>TODO server</title>
+        <meta charset="UTF-8">
+        <script>
+            async function loadTodoItems(){
+                const response = await fetch('http://localhost:3000/api/todos');
+                const data = await response.json();
+                console.log(data);
+            }
+            //loadTodoItems()//получить список дел
+            async function createTodoItem(){
+                const response = await fetch('http://localhost:3000/api/todos',{
+                    method: 'POST',
+                    headers: {'Content-Type': 'application/json'},
+                    body: JSON.stringify({
+                        name: 'Сходить за х',
+                        owner: 'Я'
+                    })
+                });
+                const data = await response.json();
+                console.log(data);
+            }
+            //createTodoItem()
+            async function getTodoItem(){
+                const response = await fetch('http://localhost:3000/api/todos/1671441540526');
+                const data = await response.json();
+                console.log(data);
+            }
+            //getTodoItem()
+            async function markTodoItemDone(){
+                const response = await fetch('http://localhost:3000/api/todos/1671441540526',{
+                    method: 'PATCH',
+                    headers: {'Content-Type': 'application/json'},
+                    body: JSON.stringify({done: true})
+                });
+                const data = await response.json();
+                console.log(data);
+            }
+            //markTodoItemDone()
+            async function deleteTodoItem(){
+                const response = await fetch('http://localhost:3000/api/todos/1671441540526',{
+                    method: 'DELETE',
+                });
+                if (response.status === 404){
+                    console.log('error');
+                }
+                const data = await response.json();
+                console.log(data);
+            }
+            //deleteTodoItem()
+        </script>
+    </head>
+    <body>
+    </body>
+</html>

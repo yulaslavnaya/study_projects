@@ -1,0 +1,19 @@
+
+td{
+    height: 40px;
+    width: 306px;
+    text-align: center;
+    font-size: 18x;
+    border: 1px solid #c6b0f7;
+}
+
+th{
+    height: 40px;
+    width: 306px;
+    background-color:#c6b0f7;
+    font-size: 24px;
+    font-weight: 500;
+    color: azure;
+    text-align: center;
+    border: 2px solid #875de3;
+}

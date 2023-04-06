@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>TODO</title>
+        <meta charset="UTF-8">
+        <link rel="stylesheet"
+        href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" 
+        integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" 
+        crossorigin="anonymous">
+        <script type="module">
+            import {createTodoApp, local, server} from './app/view.js';
+            import {
+                getTodoList,
+                createTodoItem,
+                switchOnDelete,
+                switchOnDone
+            } from './app/api.js';
+
+            import {getLocalTodoList, createLocalTodoItem} from './app/local.js'
+            const owner = "Я";
+
+
+            let submit;
+            let todoItemList =[];
+
+
+            (async () =>{
+                console.log(localStorage);
+                console.log(local,server);
+
+                if (local){
+                     todoItemList = getLocalTodoList();
+                }else{
+                     todoItemList = await getTodoList(owner);
+                };
+
+                if (local){
+                    submit = createLocalTodoItem;
+                }else{
+                    submit = createTodoItem;
+                };
+                createTodoApp(document.getElementById('todo-app'), 
+                    {title: 'Мои дела', 
+                    owner,
+                    todoItemList,
+                    onCreateFormSubmit: submit,
+                    onDeleteClick: switchOnDelete,
+                    onDoneClick: switchOnDone});
+            })();
+        </script>        
+    </head>
+    <body>
+        <div class="container mb-5">
+            <nav class="nav">
+                <a class="nav-link" href="index.html">Мои дела</a>
+                <a class="nav-link" href="mom.html">Дела мамы</a>
+                <a class="nav-link" href="dad.html">Дела папы</a>
+                <button type="button" class="btn btn-warning local">Перейти на локальное хранилище</button>
+                <button type="button" class="btn btn-info server">Перейти на серверное хранилище</button>
+            </nav>
+        </div>
+        <div id="todo-app" class="container"></div>
+    </body>
+</html>

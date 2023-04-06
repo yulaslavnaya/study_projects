@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous" />
+		<script type="module" src="./main.js"></script>
+		<title>Document</title>
+	</head>
+	<body>
+		<div class="container">
+			<form id="form-user" class="py-3">
+				<input class="form-control mb-4" name="email" placeholder="E-mail" />
+				<select class="form-control mb-4" name="gender">
+					<option value="">Пол</option>
+					<option value="Female">Жен</option>
+					<option value="Male">Муж</option>
+				</select>
+				<input class="form-control mb-4" name="name" placeholder="Name" />
+				<select class="form-control mb-4" name="status">
+					<option value="">Статус</option>
+					<option value="Active">Активный</option>
+					<option value="Inactive">Не активный</option>
+				</select>
+				<div id="form-errors" class="invalid-feedback mb-2"></div>
+				<button class="btn btn-primary" id="a">
+					<span style="display: none" class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span>
+					Создать
+				</button>
+			</form>
+		</div>
+	</body>
+</html>
